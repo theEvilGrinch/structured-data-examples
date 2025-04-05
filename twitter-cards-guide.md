@@ -1,6 +1,6 @@
 # Twitter Cards Guide
 
-This guide provides a detailed explanation of all Twitter Card fields and tags used in the `structured-data-examples` repository, specifically within `product-landing-page.html`, `service-landing-page.html`, `blog.html`, and `tech-blog.html`. Twitter Cards enhance the presentation of shared content on Twitter, such as displaying images or summaries. All descriptions are based on the official [Twitter Cards documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards) (last updated April 2025) and are crafted to be clear, detailed, and useful for beginners, adhering to modern web standards.
+This guide provides a detailed explanation of all Twitter Card fields and tags used in the `structured-data-examples` repository. Twitter Cards enhance the presentation of shared content on Twitter, such as displaying images or summaries. All descriptions are based on the official [Twitter Cards documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards) (last updated April 2025) and are crafted to be clear, detailed, and useful for beginners, adhering to modern web standards.
 
 ## Tags for `summary_large_image`
 
@@ -25,8 +25,11 @@ This guide provides a detailed explanation of all Twitter Card fields and tags u
 - **`twitter:creator`**  
   This tag provides the Twitter handle of the content’s author, prefixed with "@" (e.g., "@authorTwitter"). It credits the individual who created the content, helping users identify the author on Twitter.
 
-- **`twitter:image:width`**  
-  This tag specifies the width of the image in pixels (e.g., "1200"). It provides Twitter with exact dimensions for proper rendering, though it is optional if the image meets minimum requirements.
+- **`twitter:player`**  
+  This tag specifies the URL of an iframe-based video player, such as "https://example.com/embed/video". It’s required for the "player" card type in `online-cinema.html`, enabling users to play the movie directly within the Twitter feed. The player must use HTTPS, support a 16:9 aspect ratio, and be publicly accessible, per Twitter’s guidelines.
 
-- **`twitter:image:height`**  
-  This tag specifies the height of the image in pixels (e.g., "630"). It ensures accurate display proportions on Twitter, though it is optional if the image meets minimum requirements.
+- **`twitter:player:width`**  
+  This tag defines the width of the video player in pixels, set to "640" in `online-cinema.html`. It’s required for "player" cards, ensuring the embedded player fits Twitter’s display correctly. The value should match the actual player width, with a minimum of 320 pixels recommended for clarity.
+
+- **`twitter:player:height`**  
+  This tag sets the height of the video player in pixels, set to "360" in `online-cinema.html`. It’s required alongside `twitter:player:width` for "player" cards, maintaining the aspect ratio (e.g., 16:9 for 640x360). It ensures the video displays properly within the card on Twitter.

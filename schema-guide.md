@@ -1,6 +1,6 @@
 # Schema.org Guide
 
-This guide provides a detailed explanation of all Schema.org properties used in the `structured-data-examples` repository, specifically within `product-landing-page.html`, `service-landing-page.html`, `blog.html`, and `tech-blog.html`. Schema.org markup improves how search engines like Google understand and display your web content, such as showing prices, reviews, or maps in search results. All descriptions are based on the official [Schema.org documentation](https://schema.org) (last updated April 2025) and incorporate practical recommendations from Google where applicable. They are crafted to be clear, detailed, and useful for anyone working with these files. This guide avoids examples and focuses on comprehensive, beginner-friendly explanations, adhering to modern web standards.
+This guide provides a detailed explanation of all Schema.org properties used in the `structured-data-examples` repository, specifically within `product-landing-page.html`, `service-landing-page.html`, `online-cinema.html`, `blog.html`, and `tech-blog.html`. Schema.org markup improves how search engines like Google understand and display your web content, such as showing prices, reviews, or maps in search results. All descriptions are based on the official [Schema.org documentation](https://schema.org) (last updated April 2025) and incorporate practical recommendations from Google where applicable. They are crafted to be clear, detailed, and useful for anyone working with these files. This guide avoids examples and focuses on comprehensive, beginner-friendly explanations, adhering to modern web standards.
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ This guide provides a detailed explanation of all Schema.org properties used in 
 2. [Properties for `LocalBusiness` (Used in `service-landing-page.html`)](#properties-for-localbusiness-used-in-service-landing-pagehtml)  
 3. [Properties for `BlogPosting` (Used in `blog.html`)](#properties-for-blogposting-used-in-bloghtml)  
 4. [Properties for `TechArticle` (Used in `tech-blog.html`)](#properties-for-techarticle-used-in-tech-bloghtml)
+5. [Properties for `Movie` and `VideoObject` (Used in `online-cinema.html`)](#properties-for-movie-and-videoobject-used-in-online-cinemahtml)
 
 ## Properties for `Product` (Used in `product-landing-page.html`)
 
@@ -261,3 +262,90 @@ This guide provides a detailed explanation of all Schema.org properties used in 
 - **`breadcrumb`**  
   This field defines the navigation path through a nested object with `@type` set to "BreadcrumbList". It includes:
   - `itemListElement`: An array of objects with `@type` set to "ListItem", each containing `position` (e.g., 1), `name` (e.g., "Home"), and `item` (the corresponding URL).
+
+## Properties for `Movie` and `VideoObject` (Used in `online-cinema.html`)
+
+- **`@context`**  
+  This tag specifies the JSON-LD context, set to "https://schema.org". It is a required element that ensures search engines interpret the markup using the Schema.org vocabulary.
+
+- **`@type`**  
+  This tag defines the type, set to "Movie" or "VideoObject". "Movie" identifies the content as a cinematic work, enabling rich snippets like cast or ratings, while "VideoObject" describes a specific video file, supporting video previews in search results.
+
+- **`name`**  
+  This field holds the title of the movie or video, such as "Movie Title". It appears in search result titles and snippets, and should be concise, ideally around 60 characters, to avoid truncation.
+
+- **`description`**  
+  This field provides a summary of the movie or video, such as "A brief description of the movie, showcasing its plot and appeal". It is displayed in search snippets and should be between 50 and 160 characters for optimal fit and informativeness.
+
+- **`inLanguage`**  
+  This field specifies the language of the content using an IETF BCP 47 code (e.g., "en-US"). It ensures accurate language targeting for search engine users and applies to both the movie and its video.
+
+- **`url`**  
+  This field provides the canonical URL of the movie page (e.g., "https://example.com/movie-title"). It links directly to the content, enhancing discoverability and indexing by search engines.
+
+- **`image`**  
+  This field contains the URL of the movie’s primary image, typically a poster. It is used by search engines for rich snippets. Google recommends JPEG, PNG, or WebP formats, with a minimum resolution of 120x120 pixels, though 1200x675 is preferred for quality display.
+
+- **`genre`**  
+  This field lists the movie’s genres as an array (e.g., ["Action", "Adventure"]). It helps search engines categorize the content, improving relevance in genre-specific searches.
+
+- **`datePublished`**  
+  This field specifies the movie’s release date in ISO 8601 format (e.g., "2025-04-03"). It establishes the initial availability date for search engine indexing.
+
+- **`actor`**  
+  This field identifies the movie’s actors through an array of nested objects with `@type` set to "Person". Each includes:
+  - `name`: The actor’s full name (e.g., "Actor One"), displayed in rich snippets to highlight the cast.
+
+- **`director`**  
+  This field identifies the movie’s director through a nested object with `@type` set to "Person". It includes:
+  - `name`: The director’s full name (e.g., "Director Name"), shown in search results to credit the filmmaker.
+
+- **`duration`**  
+  This field specifies the length of the movie or video in ISO 8601 duration format (e.g., "PT2H" for 2 hours). It informs users and search engines about the runtime, enhancing content previews.
+
+- **`contentRating`**  
+  This field indicates the movie’s age or content rating (e.g., "PG-13"). It uses standard rating systems (e.g., MPAA), helping search engines filter content by audience suitability.
+
+- **`aggregateRating`**  
+  This field summarizes overall ratings through a nested object with `@type` set to "AggregateRating". It includes:
+  - `ratingValue`: The average rating as a decimal (e.g., 4.5), reflecting user feedback.
+  - `reviewCount`: The number of reviews (e.g., 100), indicating the sample size.
+  - `bestRating`: The maximum rating scale value (e.g., 5).
+  - `worstRating`: The minimum rating scale value (e.g., 0).
+
+- **`review`**  
+  This field represents a user review through a nested object with `@type` set to "Review". It includes:
+  - `author`: A nested object with `@type` set to "Person" and `name` (e.g., "Reviewer Name"), identifying the reviewer.
+  - `reviewBody`: The text of the review (e.g., "Great movie with stunning visuals!"), providing detailed feedback.
+  - `reviewRating`: A nested object with `@type` set to "Rating", containing `ratingValue` (e.g., 5), `bestRating` (e.g., 5), and `worstRating` (e.g., 0), quantifying the score.
+  - `datePublished`: The review’s publication date in ISO 8601 format (e.g., "2025-04-03T10:00:00Z"), adding temporal context.
+
+- **`video`**  
+  This field embeds video details within the `Movie` type through a nested object with `@type` set to "VideoObject". It links the movie to its video content, supporting video-specific rich results.
+
+- **`trailer`**  
+  This field provides details of the movie’s trailer through a nested object with `@type` set to "VideoObject". It connects the movie to its promotional video, enhancing discoverability.
+
+- **`thumbnailUrl`**  
+  This field contains the URL of the video’s thumbnail image. It is required for `VideoObject` by Google, with a minimum resolution of 120x120 pixels, though 1200x675 is recommended for quality.
+
+- **`uploadDate`**  
+  This field specifies the video’s upload date in ISO 8601 format (e.g., "2025-04-03T10:00:00Z"). It indicates when the video was made available online, aiding search engine indexing.
+
+- **`contentUrl`**  
+  This field provides the direct URL to the video file (e.g., "https://example.com/video.mp4"). It allows search engines to access the raw video content, though it’s optional if `embedUrl` is provided.
+
+- **`embedUrl`**  
+  This field provides the URL for embedding the video (e.g., "https://example.com/embed/video"). It enables video playback via an iframe, supporting rich video previews in search results.
+
+- **`interactionStatistic`**  
+  This field tracks user interactions with the video through an array of nested objects with `@type` set to "InteractionCounter". Each includes:
+  - `interactionType`: The type of interaction, using Schema.org URLs (e.g., "https://schema.org/WatchAction" for views, "https://schema.org/LikeAction" for likes, "https://schema.org/CommentAction" for comments, "https://schema.org/ShareAction" for shares).
+  - `userInteractionCount`: The number of interactions (e.g., 10000 for views), reflecting engagement metrics.
+
+- **`regionsAllowed`**  
+  This field lists regions where the video is available (e.g., "US, UK, CA") using ISO 3166-1 country codes. It specifies geographic accessibility, though it’s optional—if omitted, the video is assumed available everywhere.
+
+- **`mainEntityOfPage`**  
+  This field links the movie to its canonical page through a nested object with `@type` set to "WebPage". It includes:
+  - `@id`: The canonical URL of the movie page (e.g., "https://example.com/movie-title"), ensuring accurate page association.
