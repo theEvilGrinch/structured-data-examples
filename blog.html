@@ -5,56 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Article Title - Blog Name</title>
   <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Article Title",
-        "description": "Short description of the article",
-        "datePublished": "2025-04-03T10:00:00Z",
-        "dateModified": "2025-04-04T12:00:00Z",
-        "author": {
-          "@type": "Person",
-          "name": "Author Name",
-          "url": "https://example.com/about"
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://example.com/article-url"
-        },
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://example.com/article-image.jpg",
-          "width": 1200,
-          "height": 630
-        },
-        "keywords": "keyword1, keyword2"
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Article Title",
+      "description": "Short description of the article",
+      "datePublished": "2025-04-03T10:00:00Z",
+      "dateModified": "2025-04-04T12:00:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "Author Name",
+        "url": "https://example.com/about"
       },
-      {
-        "@context": "https://schema.org",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://example.com/article-url"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://example.com/article-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "keywords": "keyword1, keyword2",
+      "breadcrumb": {
         "@type": "BreadcrumbList",
+        "name": "Main navigation",
         "itemListElement": [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://example.com"
+            "position": "1",
+            "item": {
+              "@id": "https://example.com/index.html",
+              "name": "Main page"
+            }
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Category",
-            "item": "https://example.com/category"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Article Title",
-            "item": "https://example.com/article-url"
+            "position": "2",
+            "item": {
+              "@id": "https://example.com/index.html",
+              "name": "Article page"
+            }
           }
         ]
       }
-    ]
+    }
   </script>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Article Title">
